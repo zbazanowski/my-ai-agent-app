@@ -1,0 +1,26 @@
+{
+  "name": "my-ai-agent-app-dev",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+
+  "postCreateCommand": "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash && curl -fsSL https://aka.ms/install-azd.sh | bash && pip3 install --upgrade --user azure-mgmt-rdbms azure-mgmt-monitor",
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-azuretools.vscode-azurecli",
+        "ms-azuretools.azure-account",
+        "ms-azuretools.azd",
+        "ms-azuretools.vscode-docker",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.analysis.typeCheckingMode": "basic",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}

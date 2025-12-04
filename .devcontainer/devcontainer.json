@@ -2,7 +2,7 @@
   "name": "my-ai-agent-app-dev",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
 
-  "postCreateCommand": "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash && curl -fsSL https://aka.ms/install-azd.sh | bash && pip3 install --upgrade --user azure-mgmt-rdbms azure-mgmt-monitor",
+  "postCreateCommand": "curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash && curl -fsSL https://aka.ms/install-azd.sh | bash && sudo apt update && sudo apt install -y git-lfs && git lfs install && pip3 install --upgrade --user azure-mgmt-rdbms azure-mgmt-monitor",
   "remoteUser": "vscode",
   "customizations": {
     "vscode": {

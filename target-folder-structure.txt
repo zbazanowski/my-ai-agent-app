@@ -1,0 +1,29 @@
+my-ai-agent-app/
+├─ azure.yaml                     # azd template definition
+├─ README.md
+├─ infra/
+│  ├─ main.bicep                  # entry point for azd (calls modules)
+│  ├─ modules/
+│  │   ├─ app.bicep               # App Service / Container Apps, identity
+│  │   ├─ kv.bicep                # Key Vault, access policies
+│  │   ├─ monitor.bicep           # App Insights / Log Analytics
+│  │   └─ networking.bicep        # (optional) VNet, private endpoints, etc.
+│  └─ parameters/
+│      ├─ main.dev.bicepparam
+│      ├─ main.test.bicepparam
+│      └─ main.prod.bicepparam
+├─ src/
+│  ├─ app/
+│  │   ├─ __init__.py
+│  │   ├─ main.py                 # FastAPI / Flask entry point
+│  │   ├─ ai_client.py            # AIProjectClient wrapper
+│  │   └─ agents/
+│  │       └─ support_agent.py    # Helpers for Agent/Thread/Run patterns
+│  ├─ requirements.txt            # Python deps (azure-ai-projects, fastapi, etc.)
+│  └─ gunicorn_config.py          # (if App Service Linux, for example)
+├─ .azure/
+│  └─ (managed by azd: envs/.env per environment)
+└─ .github/ or azure-pipelines/   # CI/CD later
+
+
+eval $(cat ./.azure/dev/.env | xargs -d'\n' -n1 echo export)

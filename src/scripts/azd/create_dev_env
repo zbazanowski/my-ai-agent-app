@@ -1,0 +1,11 @@
+# DEV
+azd env new dev
+# azd env set AZURE_ENV_NAME dev
+
+# Set the AI Project-specific values
+azd env set AZURE_AI_PROJECT_ENDPOINT "https://baz-quickstart-318-resource.services.ai.azure.com/api/projects/baz-quickstart-318"
+azd env set AZURE_AI_PROJECT_NAME "baz-quickstart-318"
+azd env set AZURE_AI_AGENT_NAME "Agent522"
+
+# Optionally other values
+azd env set LOG_LEVEL "INFO"
